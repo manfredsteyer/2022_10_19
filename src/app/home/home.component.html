@@ -1,0 +1,49 @@
+<!-- src/app/home/home.component.html -->
+<h1>Welcome!</h1>
+
+
+<app-data-table [data]="flights">
+    <div *appTableField="let data as 'id'">{{data}}</div>
+    <div *appTableField="let data as 'from'">{{data}}</div>
+    <div *appTableField="let data as 'to'"><b>{{data}}</b></div>
+    <div *appTableField="let data as 'date'">{{data | date:'dd.MM.yyyy HH:mm'}}</div>
+</app-data-table>
+
+
+<ng-template #tmpl let-title let-link="helpLink">
+    <h2>{{title}}</h2>
+    <p>Du kannst hier Text reinschreiben!</p>
+    <a [href]="link">More ...</a>
+</ng-template>
+
+<button (clickWithWarning)="deleteAll()">Delete All!</button>
+
+
+<input [appTooltip]="tmpl">
+
+
+<app-tabbed-pane>
+
+    <app-bad></app-bad>
+
+    <app-tab title="Next Flights" #tab>
+        Lorem ipsum dolor <b>sit</b> amet consectetur, adipisicing elit. Quo tempore obcaecati corrupti, id voluptatem
+        debitis
+        quibusdam, fugiat ad cupiditate omnis sit pariatur earum quos blanditiis praesentium assumenda nisi, libero
+        sunt.
+    </app-tab>
+
+
+    <app-tab title="Delayed Flights" #tab>
+        Adipisicing elit. Quo tempore obcaecati corrupti, id voluptatem debitis
+        quibusdam, fugiat ad cupiditate omnis sit pariatur earum quos blanditiis praesentium assumenda nisi, libero
+        sunt.
+    </app-tab>
+
+    <app-tab title="Canceled Flights" #tab>
+        Quo tempore obcaecati corrupti, id voluptatem debitis
+        quibusdam, fugiat ad cupiditate omnis sit pariatur earum quos blanditiis praesentium assumenda nisi, libero
+        sunt.
+    </app-tab>
+
+</app-tabbed-pane>

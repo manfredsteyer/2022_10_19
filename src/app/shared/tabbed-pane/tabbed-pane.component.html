@@ -1,0 +1,20 @@
+<div class="pane-links">
+    <span *ngFor="let t of tabs">
+        <a class="pane-link" (click)="activate(t)">{{t.title}}</a>
+    </span>
+</div>
+<ng-content></ng-content>
+
+<app-tab-navigator #nav>
+</app-tab-navigator>
+
+<div>
+    {{ nav.page }} / {{ nav.pageCount }}
+    <button (click)="nav.next()">Next</button>
+</div>
+
+<!--
+     [page]="currentPage" 
+    [pageCount]="tabs.length" 
+    (pageChange)="change($event)"
+-->
