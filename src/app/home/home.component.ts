@@ -13,6 +13,8 @@ export class HomeComponent {
     { id: 3, from: 'Berlin', to: 'Hamburg', date: '2022-10-19T17:45' }
   ];
 
+  date = new Date().toISOString();
+
   deleteAll(): void {
     console.error('This would delete everything if this was not a cheap share ware version!');
   }
